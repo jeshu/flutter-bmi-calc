@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/icon_content.dart';
 import '../constants.dart';
+import '../calculator.dart';
+
 
 class InputPage extends StatefulWidget {
   @override
@@ -205,11 +207,19 @@ class _InputPageState extends State<InputPage> {
             BottomButton(
               buttonTitle: 'CALCULATE',
               onPressed: () {
+                Calculator calc = Calculator(
+                  height: height, weight: weight
+                );
+                String bmi = calc.calculateBMI();
                 Navigator.push(
                   context,
                   MaterialPageRoute (
                       builder: (context) {
-                        return ResultPage();
+                        return ResultPage(
+                          bmi: bmi,
+                          result:calc.getResults(),
+                          interpretation: calc.getInterperation(),
+                        );
                       }
                   ),
                 );
