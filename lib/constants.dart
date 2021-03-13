@@ -14,6 +14,27 @@ const kNumTextStyle = TextStyle(
   fontSize: 50,
   fontWeight: FontWeight.w900,
 );
+const kLargeBtnStyle = TextStyle(
+  fontSize: 25,
+  fontWeight: FontWeight.bold,
+);
+
+const kLargeTxtStyle = TextStyle(
+  fontSize: 50,
+  fontWeight: FontWeight.bold,
+);
+const kBMITxtStyle = TextStyle(
+  fontSize: 100,
+  fontWeight: FontWeight.bold,
+);
+const kBodyTxtStyle = TextStyle(
+  fontSize: 22,
+);
+const kResultTxtStyle = TextStyle(
+  fontSize: 22,
+  color: Color(0xFF24D876),
+  fontWeight: FontWeight.bold,
+);
 
 enum Gender {
   MALE,

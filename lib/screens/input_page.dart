@@ -1,10 +1,11 @@
+import '../components/bottom_button.dart';
+import 'results_page.dart';
 import 'package:flutter/cupertino.dart';
-
-import 'reusable_card.dart';
+import '../components/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'constants.dart';
+import '../components/icon_content.dart';
+import '../constants.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -22,6 +23,9 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('BMI Calculator'),
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -198,17 +202,26 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            Container(
-              color: BUTTON_COLOR,
-              margin: EdgeInsets.only(top: 10),
-              height: bottomContainerHeight,
-            )
+            BottomButton(
+              buttonTitle: 'CALCULATE',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute (
+                      builder: (context) {
+                        return ResultPage();
+                      }
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
     );
   }
 }
+
 
 class RoundIconButton extends StatelessWidget {
   RoundIconButton({this.iconData, this.onPressed});
@@ -220,7 +233,7 @@ class RoundIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: onPressed,
-      elevation: 6.0,
+      elevation: 0.0,
       constraints: BoxConstraints.tightFor(
         width: 56,
         height: 56,
